@@ -1,0 +1,23 @@
+{
+  "name": "guia-de-perguntas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diogolaureano/Guia-de-Perguntas.git"
+  },
+  "author": "Diogo Sousa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/diogolaureano/Guia-de-Perguntas/issues"
+  },
+  "homepage": "https://github.com/diogolaureano/Guia-de-Perguntas#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1"
+  }
+}
