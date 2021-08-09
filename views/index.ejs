@@ -32,6 +32,16 @@
             <h3>Nenhum erro</h3>
             <%}%>
 
+                <% produtos.forEach(function(pd){%>
+                    <hr>
+                    <h4>
+                        <%= pd.nome %>
+                    </h4>
+                    <h4>
+                        <%= pd.preco %>
+                    </h4>
+                    <%})%>
+
 </body>
 
 </html>
