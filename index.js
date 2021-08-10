@@ -10,6 +10,18 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 //Habilita para trabalhar com APIs
 app.use(bodyParser.json());
+//Criando variavel de conexao
+const connection = require("./database/database");
+
+//Database
+connection
+    .authenticate()
+    .then(() => {
+        console.log("Conexão realizada pelo banco de dados");
+    })
+    .catch((msgErro) => {
+        console.log(msgErro);
+    })
 
 
 // ===================== ROTAS ====================
