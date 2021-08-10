@@ -4,6 +4,9 @@ const app = express();
 //Informando que o EJS será usado nas Views
 app.set('view engine', 'ejs');
 
+// Linha para configurar arquivos estaticos
+app.use(express.static('public'));
+
 app.get("/", (req, res) => {
     var nome = "Diogo";
     var lang = "Java";
