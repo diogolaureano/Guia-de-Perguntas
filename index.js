@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
+const Pergunta = require("./database/Pergunta");
 
 //Informando que o EJS será usado nas Views
 app.set('view engine', 'ejs');
@@ -27,7 +28,13 @@ connection
 // ===================== ROTAS ====================
 
 app.get("/", (req, res) => {
-    res.render("index");
+    //Select * from
+    Pergunta.findAll({ raw: true }).then(pergunta => {
+        res.render("index", {
+            pergunta: pergunta
+        });
+    });
+
 });
 
 app.get("/perguntar", (req, res) => {
@@ -37,7 +44,15 @@ app.get("/perguntar", (req, res) => {
 app.post("/salvarpergunta", (req, res) => {
     var titulo = req.body.titulo;
     var descricao = req.body.descricao;
-    res.send("Recebido titulo: " + titulo + " e descricao:" + descricao);
+
+    //Insert into
+    Pergunta.create({
+        titulo: titulo,
+        descricao: descricao
+    }).then(() => {
+        res.redirect("/");
+    });
+
 });
 
 app.listen(8080, () => { console.log("App rodando!") });
