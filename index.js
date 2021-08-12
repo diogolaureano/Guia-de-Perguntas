@@ -29,7 +29,12 @@ connection
 
 app.get("/", (req, res) => {
     //Select * from
-    Pergunta.findAll({ raw: true }).then(pergunta => {
+    Pergunta.findAll({
+        raw: true,
+        order: [
+            ['id', 'DESC']
+        ]
+    }).then(pergunta => {
         res.render("index", {
             pergunta: pergunta
         });
